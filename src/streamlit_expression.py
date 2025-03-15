@@ -84,7 +84,9 @@ st.title("Mathematical Expression Evaluator")
 # Input field for the expression
 expression = st.text_input("Enter a mathematical expression:", "2 * (3 + 4)")
 
-if st.button("Evaluate"):
+# Add some example expressions
+
+if expression:  # Only evaluate if there's input
     try:
         evaluator = ExpressionEvaluator()
         result = evaluator.parse_expression(expression)
@@ -94,35 +96,9 @@ if st.button("Evaluate"):
             result = int(result)
             
         st.success(f"Result: {result}")
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
-
-# Add some example expressions
-st.markdown("### Example expressions:")
-examples = [
-    "(3 + 5) * (2 - 1) / 4",
-    "3 + 5 * 2",
-    "10 / 2 + 3",
-    "2 * (3 + 4)",
-    "8 / (4 - 2)",
-    "-5 + 10"
-]
-
-for example in examples:
-    st.code(example)
-
-# Add explanation
-st.markdown("""
-### Supported Operations:
-- Addition (+)
-- Subtraction (-)
-- Multiplication (*)
-- Division (/)
-- Parentheses ()
-- Negative numbers
-
-### Notes:
-- Spaces are ignored
-- Decimal numbers are supported
-- Division by zero will raise an error
-""") 
+    except ZeroDivisionError:
+        st.warning("Cannot divide by zero. Please check your expression.")
+    except ValueError as e:
+        st.warning(f"Invalid expression: {str(e)}")
+    except Exception:
+        st.warning("Please enter a valid mathematical expression.")

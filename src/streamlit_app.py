@@ -6,32 +6,27 @@ st.title("Mathematical Expression Evaluator")
 # Input field for the expression
 expression = st.text_input("Enter a mathematical expression:", "2 * (3 + 4)")
 
-if st.button("Evaluate"):
+# Add some example expressions
+
+
+if expression:  # Only evaluate if there's input
     try:
         # Make API call to the FastAPI endpoint
         response = requests.post(
             "http://localhost:8000/evaluate",
-            json={"expression": expression}
+            json={"expression": expression},
+            timeout=5  # Add timeout to prevent hanging
         )
         
         if response.status_code == 200:
             result = response.json()
             st.success(f"Result: {result['result']}")
         else:
-            st.error(f"Error: {response.json()['detail']}")
-    except Exception as e:
-        st.error(f"Error: {str(e)}")
+            st.warning("Please check your expression and try again.")
+    except requests.exceptions.ConnectionError:
+        st.warning("Cannot connect to the server. Please make sure the API is running.")
+    except requests.exceptions.Timeout:
+        st.warning("Server request timed out. Please try again.")
+    except Exception:
+        st.warning("Please enter a valid mathematical expression.")
 
-# Add some example expressions
-st.markdown("### Example expressions:")
-examples = [
-    "(3 + 5) * (2 - 1) / 4",
-    "3 + 5 * 2",
-    "10 / 2 + 3",
-    "2 * (3 + 4)",
-    "8 / (4 - 2)",
-    "-5 + 10"
-]
-
-for example in examples:
-    st.code(example) 
