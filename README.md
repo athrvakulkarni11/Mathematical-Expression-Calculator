@@ -7,7 +7,11 @@ A robust mathematical expression evaluator that supports basic arithmetic operat
 
 - **Streamlit Interface**: [https://mathematical-expression-calculator.streamlit.app/](https://mathematical-expression-calculator.streamlit.app/)
 - **FASTAPI DEMO**: [https://mathematical-expression-calculator.onrender.com/docs](https://mathematical-expression-calculator.onrender.com/docs)
+## Video Demonstration
+- **Video Demo**: [https://drive.google.com/file/d/1N6spOJXYPlDGmpWpvclJbaJvzBJ06YeL/view?usp=sharing](https://drive.google.com/file/d/1N6spOJXYPlDGmpWpvclJbaJvzBJ06YeL/view?usp=sharing)
 
+### GITHUB REPO FOR VISUALIZATION OF README AND CODE :
+- **Git hub Repo**: [https://github.com/athrvakulkarni11/Mathematical-Expression-Calculator.git](https://github.com/athrvakulkarni11/Mathematical-Expression-Calculator.git)
 
 ## Features
 
@@ -28,7 +32,7 @@ A robust mathematical expression evaluator that supports basic arithmetic operat
 - Limited to basic arithmetic operations
 - No support for exponents or roots
 
-## Installation
+## Installation (make sure you have python installed in your system)
 
 
 2. Create and activate a virtual environment:
@@ -39,7 +43,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 3. Install dependencies:
 ```bash
-pip install -e .
+pip install -r requirements.txt
 ```
 
 ## Running the Application
@@ -60,39 +64,37 @@ streamlit run src/streamlit_app.py
 ```
 2. Access the web interface at: `http://localhost:8501`
 
+### Directly With Streamlit 
+
+1. Directly With Streamlit:
+```bash
+streamlit run src/streamlit_expression.py
+```
+2. Access the web interface at: `http://localhost:8501`
+
+### Basic Functionality
+
+1. Run The Basic Logic of The Code
+```bash
+python src/test.py
+```
+
 ## Testing
 
 ### Running Tests
 
-1. Run all tests:
+1. Running Tests with Tox
+
+Tox allows you to test your application across different python versions. 
+To run tests across all supported python versions (3.8, 3.9, 3.10, 3.11):
+```bash
+tox
+```
+2. Run all tests with pytest:
 ```bash
 pytest
 ```
 
-2. Run tests with coverage:
-```bash
-pytest --cov=src tests/
-```
-
-3. Running Tests with Tox
-
-Tox allows you to test your application across different Python versions. Make sure you have tox installed:
-```bash
-pip install tox
-```
-
-To run tests across all supported Python versions (3.8, 3.9, 3.10, 3.11):
-```bash
-tox
-```
-
-
-
-### Test Files
-
-- `tests/test_api.py`: API endpoint tests
-- `tests/test_expression_evaluator.py`: Core evaluator tests
-- `tests/test_streamlit.py`: Streamlit interface tests
 
 ## Project Structure
 
@@ -102,19 +104,17 @@ mathematical-expression-evaluator/
 │   ├── expression_api.py      # FastAPI backend
 │   ├── streamlit_app.py       # Streamlit frontend
 │   └── streamlit_expression.py # Expression evaluator
+|   └── test.py # test logic
 ├── tests/
 │   ├── test_api.py
 │   ├── test_expression_evaluator.py
-│   └── test_streamlit.py
 ├── setup.py
 ├── requirements.txt
 ├── tox.ini
 └── README.md
 ```
 
-## Video Demonstration
 
-[Insert video demonstration link here]
 
 ## API Usage Example
 
