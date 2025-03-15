@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+streamlit
+requests
+pytest
+pytest-cov
+httpx
+tox 
