@@ -7,8 +7,6 @@ A robust mathematical expression evaluator that supports basic arithmetic operat
 
 - **Streamlit Interface**: [https://mathematical-expression-calculator.streamlit.app/](https://mathematical-expression-calculator.streamlit.app/)
 - **FASTAPI DEMO**: [https://mathematical-expression-calculator.onrender.com/docs](https://mathematical-expression-calculator.onrender.com/docs)
-## Video Demonstration
-- **Video Demo**: [https://drive.google.com/file/d/1N6spOJXYPlDGmpWpvclJbaJvzBJ06YeL/view?usp=sharing](https://drive.google.com/file/d/1N6spOJXYPlDGmpWpvclJbaJvzBJ06YeL/view?usp=sharing)
 
 ### GITHUB REPO FOR VISUALIZATION OF README AND CODE :
 - **Git hub Repo**: [https://github.com/athrvakulkarni11/Mathematical-Expression-Calculator.git](https://github.com/athrvakulkarni11/Mathematical-Expression-Calculator.git)
